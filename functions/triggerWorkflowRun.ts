@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+
 import { GraphQLClient } from 'graphql-request';
 import { runWorkflowFrom } from './_shared/engine';
 
@@ -9,7 +9,7 @@ const client = new GraphQLClient(NHOST_GRAPHQL_URL, {
   headers: { 'x-hasura-admin-secret': NHOST_ADMIN_SECRET }
 });
 
-export default async function handler(req: Request, res: Response) {
+export default async function handler(req: any, res: any) {
   // Nhost functions expose express-like Request/Response
   try {
     const { input, session_variables } = req.body;
